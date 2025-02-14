@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serás mi San Valentín?</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff6f61;
+            text-align: center;
+        }
+
+        .boton {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .si {
+            background-color: #32cd32;
+            color: white;
+        }
+
+        .no {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .no:hover {
+            background-color: #ff4500;
+        }
+
+        .si:hover {
+            background-color: #228b22;
+        }
+
+        .mensaje {
+            display: none;
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .boton-no {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi San Valentín?</h1>
+
+    <button class="boton si" onclick="mostrarMensaje()">Sí, quiero</button>
+    <button class="boton no boton-no" id="botonNo" onmouseover="moverBoton()">No, gracias</button>
+
+    <div class="mensaje" id="mensaje">
+        <p>¡Y ahora eres mi San Valentín!</p>
+        <p>"Eres mi sol, mi luna, mi amor eterno. Mi vida no tendría sentido sin ti."</p>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            // Ocultamos los botones y mostramos el mensaje
+            document.querySelector(".si").style.display = "none";
+            document.querySelector(".boton-no").style.display = "none";
+            document.getElementById("mensaje").style.display = "block";
+        }
+
+        function moverBoton() {
+            // Mueve el botón "No" aleatoriamente en la ventana
+            let botonNo = document.getElementById("botonNo");
+            let maxWidth = window.innerWidth - botonNo.offsetWidth;
+            let maxHeight = window.innerHeight - botonNo.offsetHeight;
+            let newX = Math.random() * maxWidth;
+            let newY = Math.random() * maxHeight;
+            botonNo.style.left = newX + "px";
+            botonNo.style.top = newY + "px";
+        }
+    </script>
+
+</body>
+</html>
